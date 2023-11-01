@@ -1,11 +1,12 @@
 const esbuild = require('esbuild');
 const path = require('path');
 const fs = require('fs');
-const autoprefixer = require("autoprefixer")
-const postcssNesting = require('postcss-nesting');
-const postcssMixins = require('postcss-mixins');
-const postcssImport = require('postcss-import');
-const postcss = require("postcss");
+
+// const autoprefixer = require("autoprefixer")
+// const postcssNesting = require('postcss-nesting');
+// const postcssMixins = require('postcss-mixins');
+// const postcssImport = require('postcss-import');
+// const postcss = require("postcss");
 
 const esbuildPostcss = (options = { plugins: [] }) => ({
   name: "postcss",
@@ -60,14 +61,14 @@ const resolveCkeditorPlugin = (options={})=>{
           if(options.exclude==result[1]){
             return;
           }
-          return {path:`es-ckeditor/lib/${result[1]}`, external:true}
+          return {path:`es-ckeditor-lib/lib/${result[1]}`, external:true}
         }
         const res = /@ckeditor[\\\/]ckeditor5-([\w]+)$/.exec(args.path);
         if(res){
           if(options.exclude==res[1]){
             return
           }
-          return {path:`es-ckeditor/lib/${res[1]}`, external:true}
+          return {path:`es-ckeditor-lib/lib/${res[1]}`, external:true}
         }
         return;
       })
@@ -138,14 +139,14 @@ const tasks = configs.map( item=>{
     },
     plugins: [
       resolveCssPlugin(),
-      esbuildPostcss({
-        plugins: [
-          autoprefixer,
-          postcssNesting(),
-          postcssMixins(),
-          postcssImport()
-        ],
-      }),
+      // esbuildPostcss({
+      //   plugins: [
+      //     autoprefixer,
+      //     postcssNesting(),
+      //     postcssMixins(),
+      //     postcssImport()
+      //   ],
+      // }),
       ...(item.plugins||[])
     ],
   })
