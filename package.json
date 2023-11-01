@@ -1,0 +1,22 @@
+{
+  "name": "es-ckeditor",
+  "version": "0.0.1",
+  "description": "Split main package dependencies for Ckeditor plugins",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./scripts/build.js"
+  },
+  "author": "Jun Ye",
+  "license": "MIT",
+  "devDependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^40.0.0",
+    "@ckeditor/ckeditor5-build-decoupled-document": "^40.0.0",
+    "@ckeditor/ckeditor5-editor-balloon": "^40.0.0",
+    "@ckeditor/ckeditor5-editor-decoupled": "^40.0.0",
+    "@ckeditor/ckeditor5-editor-inline": "^40.0.0",
+    "@ckeditor/ckeditor5-editor-multi-root": "^40.0.0",
+    "@ckeditor/ckeditor5-theme-lark": "^40.0.0",
+    "autoprefixer": "^10.4.16",
+    "esbuild": "letest"
+  }
+}
